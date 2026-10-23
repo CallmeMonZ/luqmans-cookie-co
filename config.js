@@ -108,8 +108,8 @@ window.SITE = {
 
   /* ---------- Find us ---------- */
   location: {
-    place: "Next to the coffee machine, RAKMHSU",
-    detail: "[BUILDING / FLOOR]",
+    place: "RAK Medical & Health Sciences University",
+    detail: "First floor",
     // Optional photo of the spot, e.g. "images/machine-spot.webp". Leave "" for none.
     photo: "",
     photoAlt: "The Luqman's Cookie Co. vending machine next to the coffee machine"
