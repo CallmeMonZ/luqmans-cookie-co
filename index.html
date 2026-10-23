@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luqman's Cookie Co. | Freshly baked treats</title>
+  <meta name="description" content="Luqman's Cookie Co.: freshly baked cookies, brownies, muffins and mini croissants from the vending machine next to the coffee machine.">
+  <meta name="theme-color" content="#FBF5EC">
+
+  <meta property="og:title" content="Luqman's Cookie Co.">
+  <meta property="og:description" content="Freshly baked treats, right next to your coffee.">
+  <meta property="og:type" content="website">
+  <!-- SHARE IMAGE: link previews need a full URL. Once live, change to e.g. https://<username>.github.io/<repo>/images/share.jpg -->
+  <meta property="og:image" content="images/share.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23D9A066'/%3E%3Ccircle cx='22' cy='24' r='4' fill='%233B2418'/%3E%3Ccircle cx='40' cy='20' r='3' fill='%233B2418'/%3E%3Ccircle cx='38' cy='38' r='4' fill='%233B2418'/%3E%3Ccircle cx='24' cy='42' r='3' fill='%233B2418'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Lets CSS hide .reveal elements only when JS is running, so content never gets stuck invisible -->
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Reusable cookie drawing, referenced with <use href="#cookie"> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="cookie" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="28" fill="#D9A066"/>
+      <circle cx="32" cy="32" r="28" fill="none" stroke="#B9814A" stroke-width="2"/>
+      <circle cx="22" cy="23" r="4" fill="#3B2418"/>
+      <circle cx="40" cy="19" r="3" fill="#3B2418"/>
+      <circle cx="41" cy="37" r="4.5" fill="#3B2418"/>
+      <circle cx="23" cy="42" r="3.2" fill="#3B2418"/>
+      <circle cx="32" cy="30" r="2.2" fill="#3B2418"/>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#menu">Skip to menu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="#top">Luqman's Cookie Co.</a>
+      <nav aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#find">Find us</a></li>
+          <li><a href="#feedback">Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero-floaters" aria-hidden="true">
+        <svg class="floater f1"><use href="#cookie"/></svg>
+        <svg class="floater f2"><use href="#cookie"/></svg>
+        <svg class="floater f3"><use href="#cookie"/></svg>
+        <span class="crumb c1"></span>
+        <span class="crumb c2"></span>
+        <span class="crumb c3"></span>
+      </div>
+
+      <div class="container hero-content">
+        <div class="title-wrap">
+          <!-- Decorative animation behind the brand name -->
+          <div class="title-bg" aria-hidden="true">
+            <span class="title-glow"></span>
+            <svg class="title-cookie"><use href="#cookie"/></svg>
+            <span class="title-orbit"><i></i><i></i><i></i><i></i></span>
+          </div>
+          <h1>Luqman's Cookie&nbsp;Co.</h1>
+        </div>
+        <p class="tagline">Freshly baked treats, right next to your coffee.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">See the menu</a>
+          <a class="btn btn-ghost" href="#find">Find the machine</a>
+        </div>
+      </div>
+
+      <!-- Marquee: the second list is a duplicate for a seamless loop and is hidden from screen readers -->
+      <div class="marquee" aria-label="On the menu: Chocolate Chip, Double Chocolate, Oat and Date, Fudge Brownie, Blueberry Muffin, Mini Croissant">
+        <div class="marquee-track">
+          <ul class="marquee-list" aria-hidden="true">
+            <li>Chocolate Chip</li><li>Double Chocolate</li><li>Oat &amp; Date</li>
+            <li>Fudge Brownie</li><li>Blueberry Muffin</li><li>Mini Croissant</li>
+          </ul>
+          <ul class="marquee-list" aria-hidden="true">
+            <li>Chocolate Chip</li><li>Double Chocolate</li><li>Oat &amp; Date</li>
+            <li>Fudge Brownie</li><li>Blueberry Muffin</li><li>Mini Croissant</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MENU ============ -->
+    <section id="menu" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The menu</p>
+          <h2>Baked for your break</h2>
+          <p class="section-sub">Grab one with your coffee. Prices in AED.</p>
+        </div>
+
+        <!-- MENU: edit names / prices / descriptions here.
+             Photos live in images/ (800×500 WebP). Stock photos from Unsplash — swap for your own when ready. -->
+        <ul class="menu-grid">
+          <li class="card reveal" style="--delay:0ms">
+            <img class="card-media" src="images/chocolate-chip.webp" alt="Chocolate chip cookies with chocolate chunks" width="800" height="500" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="card-top"><h3>Chocolate Chip Cookie</h3><span class="price">AED 5</span></div>
+              <p>Golden edges, soft centre, loaded with chocolate chips.</p>
+            </div>
+          </li>
+          <li class="card reveal" style="--delay:80ms">
+            <img class="card-media media-dark" src="images/double-chocolate.webp" alt="Dark double chocolate cookies" width="800" height="500" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="card-top"><h3>Double Chocolate Cookie</h3><span class="price">AED 6</span></div>
+              <p>Rich cocoa dough with melty dark chocolate chunks.</p>
+            </div>
+          </li>
+          <li class="card reveal" style="--delay:160ms">
+            <img class="card-media media-oat" src="images/oat-date.webp" alt="A stack of oat cookies on a plate" width="800" height="500" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="card-top"><h3>Oat &amp; Date Cookie</h3><span class="price">AED 6</span></div>
+              <p>Chewy oats sweetened with dates. Our lighter pick.</p>
+              <span class="tag">Lighter choice</span>
+            </div>
+          </li>
+          <li class="card reveal" style="--delay:0ms">
+            <img class="card-media media-dark" src="images/fudge-brownie.webp" alt="Stacked fudgy chocolate brownies" width="800" height="500" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="card-top"><h3>Fudge Brownie</h3><span class="price">AED 7</span></div>
+              <p>Dense, fudgy and crackly on top. Pure chocolate comfort.</p>
+            </div>
+          </li>
+          <li class="card reveal" style="--delay:80ms">
+            <img class="card-media media-berry" src="images/blueberry-muffin.webp" alt="Blueberry muffins with fresh blueberries" width="800" height="500" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="card-top"><h3>Blueberry Muffin</h3><span class="price">AED 7</span></div>
+              <p>Fluffy and bursting with blueberries, with a sugary top.</p>
+            </div>
+          </li>
+          <li class="card reveal" style="--delay:160ms">
+            <img class="card-media media-butter" src="images/mini-croissant.webp" alt="Golden, flaky croissants" width="800" height="500" loading="lazy" decoding="async">
+            <div class="card-body">
+              <div class="card-top"><h3>Mini Croissant</h3><span class="price">AED 6</span></div>
+              <p>Flaky, buttery layers. The perfect partner for coffee.</p>
+            </div>
+          </li>
+        </ul>
+        <!-- /MENU -->
+      </div>
+    </section>
+
+    <!-- ============ FIND US ============ -->
+    <section id="find" class="section section-alt">
+      <div class="container find reveal">
+        <div class="find-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div>
+          <p class="eyebrow">Find us</p>
+          <h2>Next to the coffee machine</h2>
+          <p class="find-address">
+            <!-- LOCATION: replace with exact building / floor -->
+            <span class="placeholder">[Building / Floor: TBC]</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section about">
+      <div class="container reveal">
+        <p class="about-line">A <strong>Luqman Trading</strong> brand bringing freshly baked cookies and treats, any time you need a break.</p>
+      </div>
+    </section>
+
+    <!-- ============ FEEDBACK ============ -->
+    <section id="feedback" class="section section-alt">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">Feedback</p>
+          <h2>Tell us what you think</h2>
+          <p class="section-sub">Loved something? Want a new flavour? We read every message.</p>
+        </div>
+
+        <!-- FORMSPREE: replace YOUR_FORM_ID with your form's ID (see README.md) -->
+        <form class="feedback-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="fb-name">Name <span class="optional">(optional)</span></label>
+            <input id="fb-name" name="name" type="text" autocomplete="name" maxlength="80">
+          </div>
+
+          <fieldset class="field">
+            <legend>How was your treat?</legend>
+            <!-- Inputs run 5→1 so CSS can highlight "up to" the chosen cookie -->
+            <div class="rating">
+              <input type="radio" id="r5" name="rating" value="5"><label for="r5" title="5 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">5 out of 5</span></label>
+              <input type="radio" id="r4" name="rating" value="4"><label for="r4" title="4 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">4 out of 5</span></label>
+              <input type="radio" id="r3" name="rating" value="3"><label for="r3" title="3 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">3 out of 5</span></label>
+              <input type="radio" id="r2" name="rating" value="2"><label for="r2" title="2 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">2 out of 5</span></label>
+              <input type="radio" id="r1" name="rating" value="1"><label for="r1" title="1 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">1 out of 5</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="fb-message">Message</label>
+            <textarea id="fb-message" name="message" rows="4" required maxlength="2000" placeholder="What did you have? What should we add?"></textarea>
+          </div>
+
+          <!-- Honeypot: hidden from people, bots fill it in and Formspree discards the submission -->
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button class="btn btn-primary btn-block" type="submit">Send feedback</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Luqman's Cookie Co. · A Luqman Trading brand</p>
+      <!-- INSTAGRAM: replace href="#" with your profile URL, e.g. https://instagram.com/yourhandle -->
+      <a class="social" href="#" target="_blank" rel="noopener" aria-label="Luqman's Cookie Co. on Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
