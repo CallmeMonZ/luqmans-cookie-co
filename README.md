@@ -4,6 +4,18 @@ A static, mobile-first page for the Luqman's Cookie Co. vending machine. It is p
 
 > A full beginner's guide (menu, sold out, baked-on date, votes, exam mode, Hall of Fame, editing from an iPad) is coming in Phase 3.
 
+## The four tabs
+| Page | Tab | Suggested QR sticker link |
+|---|---|---|
+| `index.html` | Menu: fresh batch, menu, allergens, coffee pairings, exam banner, Instagram | `…/index.html?src=front` (front of the machine) |
+| `vote.html` | Vote: flavour vote, rate today's cookie, name a cookie, Hall of Fame | `…/vote.html?src=side` (side of the machine) |
+| `orders.html` | Orders: group and event orders | `…/orders.html?src=wrapper` |
+| `help.html` | Help: machine problem button and FAQs | `…/help.html?src=pickup` (by the pickup window) |
+
+The `?src=` tag is remembered for the visit and sent with every form submission, so you can see which sticker people scanned.
+
+**The forms aren't connected yet.** Until the Google Form details are filled in under `forms` in `config.js`, the forms say "Forms aren't connected yet". Setup steps are coming in the Phase 3 guide.
+
 ## Where to edit things
 **Everything you'll want to change is in `config.js`.** You don't need to touch the HTML.
 

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Luqman's Cookie Co. | Vote &amp; rate</title>
+  <meta name="description" content="Vote for Luqman's Cookie Co.'s next flavour, rate today's cookie and suggest a name for our next cookie.">
+  <meta name="theme-color" content="#FBF5EC">
+
+  <meta property="og:title" content="Luqman's Cookie Co. | Vote for the next flavour">
+  <meta property="og:description" content="Pick our next flavour, rate today's cookie and name our next cookie.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/share.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23D9A066'/%3E%3Ccircle cx='22' cy='24' r='4' fill='%233B2418'/%3E%3Ccircle cx='40' cy='20' r='3' fill='%233B2418'/%3E%3Ccircle cx='38' cy='38' r='4' fill='%233B2418'/%3E%3Ccircle cx='24' cy='42' r='3' fill='%233B2418'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="prefetch" href="index.html">
+  <link rel="prefetch" href="orders.html">
+  <link rel="prefetch" href="help.html">
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body data-page="vote">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="page-top">
+    <div class="container">
+      <a class="wordmark" href="index.html">Luqman's Cookie Co.</a>
+      <h1>Have your say</h1>
+      <p class="section-sub">Vote, rate and name our next cookie.</p>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ VOTE FOR THE NEXT FLAVOUR ============ -->
+    <section id="vote" class="section section-tight">
+      <div class="container narrow">
+        <div class="panel reveal">
+          <p class="eyebrow">Vote for the next flavour</p>
+          <h2 data-text="vote.question">What should we bake next?</h2>
+          <p class="vote-ends muted" id="vote-ends" hidden></p>
+
+          <form class="lcc-form" id="vote-form" data-type="vote" novalidate>
+            <fieldset class="vote-options">
+              <legend class="sr-only">Flavour options</legend>
+              <div id="vote-options"></div>
+            </fieldset>
+            <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-primary btn-block" type="submit">Cast my vote</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="privacy-note">Votes are anonymous. One vote per phone per round.</p>
+          </form>
+          <noscript><p class="noscript-note">Voting needs JavaScript. You can also <a href="https://wa.me/971557939565">message us on WhatsApp</a>.</p></noscript>
+
+          <div class="winner" id="last-winner" hidden>
+            <svg class="winner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+            <div>
+              <p class="winner-label">Last month's winner</p>
+              <p class="winner-name" id="last-winner-name"></p>
+              <p class="winner-result muted" id="last-winner-result"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RATE TODAY'S COOKIE ============ -->
+    <section id="rate" class="section section-tight">
+      <div class="container narrow">
+        <div class="panel reveal">
+          <p class="eyebrow">Rate today's cookie</p>
+          <h2 id="rate-title">How was your treat today?</h2>
+          <p class="section-sub">One tap and it's sent.</p>
+
+          <div class="rate-buttons" id="rate-buttons" role="group" aria-labelledby="rate-title">
+            <button type="button" class="rate-btn" data-value="Loved it"><span class="emoji" aria-hidden="true">😍</span><span>Loved it</span></button>
+            <button type="button" class="rate-btn" data-value="Good"><span class="emoji" aria-hidden="true">👍</span><span>Good</span></button>
+            <button type="button" class="rate-btn" data-value="Okay"><span class="emoji" aria-hidden="true">😐</span><span>Okay</span></button>
+            <button type="button" class="rate-btn" data-value="Not for me"><span class="emoji" aria-hidden="true">👎</span><span>Not for me</span></button>
+          </div>
+          <noscript><p class="noscript-note">Rating needs JavaScript.</p></noscript>
+
+          <div class="rate-thanks" id="rate-thanks" hidden>
+            <p class="rate-thanks-emoji" id="rate-thanks-emoji" aria-hidden="true"></p>
+            <p class="rate-thanks-text" id="rate-thanks-text" role="status" aria-live="polite"></p>
+          </div>
+
+          <form class="lcc-form rate-comment" id="rate-comment-form" data-type="rating-comment" novalidate hidden>
+            <div class="field">
+              <label for="rate-comment">Want to tell us more?</label>
+              <textarea id="rate-comment" data-field="comment" rows="3" maxlength="500" required placeholder="What did you like, or what should we change?"></textarea>
+            </div>
+            <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-ghost btn-block" type="submit">Send comment</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <p class="privacy-note">Ratings are anonymous. We don't ask for your name.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NAME OUR NEXT COOKIE ============ -->
+    <section id="name-cookie" class="section section-tight">
+      <div class="container narrow">
+        <div class="panel reveal">
+          <p class="eyebrow">Name our next cookie</p>
+          <h2>Got a great name?</h2>
+          <p class="section-sub">If we pick yours, you'll make the Hall of Fame.</p>
+
+          <form class="lcc-form" id="name-form" data-type="name-idea" novalidate>
+            <div class="field">
+              <label for="name-idea">Your cookie name idea</label>
+              <input id="name-idea" type="text" data-field="choice" maxlength="40" required placeholder="e.g. The All-Nighter">
+            </div>
+            <div class="field">
+              <label for="name-credit">First name or nickname <span class="optional">(optional, for credit)</span></label>
+              <input id="name-credit" type="text" data-field="name" maxlength="30" autocomplete="given-name">
+            </div>
+            <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-primary btn-block" type="submit">Send my idea</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <p class="privacy-note">We only use your first name or nickname to credit you if your idea wins.</p>
+          </form>
+          <noscript><p class="noscript-note">This form needs JavaScript. You can also <a href="https://wa.me/971557939565">message us your idea on WhatsApp</a>.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HALL OF FAME ============ -->
+    <section id="hall-of-fame" class="section section-tight">
+      <div class="container narrow">
+        <div class="reveal">
+          <div class="section-head">
+            <p class="eyebrow">Hall of Fame</p>
+            <h2>Named by students</h2>
+          </div>
+          <ol class="hall" id="hall-list"></ol>
+          <p class="hall-empty muted" id="hall-empty" hidden>No winners yet. Your idea could be the first!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span class="year">2026</span> Luqman's Cookie Co. · A Luqman Trading brand</p>
+  </footer>
+
+  <nav class="tabbar" aria-label="Main">
+    <a class="tab" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="9" r="1.2" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><circle cx="14" cy="15" r="1.3" fill="currentColor"/><circle cx="9" cy="15" r="1" fill="currentColor"/></svg>
+      <span>Menu</span>
+    </a>
+    <a class="tab" href="vote.html" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg>
+      <span>Vote</span>
+    </a>
+    <a class="tab" href="orders.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8C10.5 4 7 4 7 6s3 2 5 2c2 0 5 0 5-2s-3.5-2-5 2"/></svg>
+      <span>Orders</span>
+    </a>
+    <a class="tab" href="help.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.3 2.4c-.6.3-.9.8-.9 1.5v.3"/><circle cx="12" cy="16.8" r=".7" fill="currentColor"/></svg>
+      <span>Help</span>
+    </a>
+  </nav>
+</body>
+</html>
