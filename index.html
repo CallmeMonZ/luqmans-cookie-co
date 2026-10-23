@@ -17,11 +17,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&family=Inter:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="styles.css">
 
   <!-- Lets CSS hide .reveal elements only when JS is running, so content never gets stuck invisible -->
   <script>document.documentElement.classList.add('js');</script>
+  <script src="config.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -43,11 +44,12 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="wordmark" href="#top">Luqman's Cookie Co.</a>
-      <nav aria-label="Main">
-        <ul class="nav-links">
+      <nav class="mini-nav" aria-label="Sections">
+        <ul>
           <li><a href="#menu">Menu</a></li>
+          <li><a href="#vote">Vote</a></li>
           <li><a href="#find">Find us</a></li>
-          <li><a href="#feedback">Feedback</a></li>
+          <li><a href="#help">Help</a></li>
         </ul>
       </nav>
     </div>
@@ -75,24 +77,18 @@
           </div>
           <h1>Luqman's Cookie&nbsp;Co.</h1>
         </div>
-        <p class="tagline">Freshly baked treats, right next to your coffee.</p>
+        <p class="tagline" data-text="brand.tagline">Freshly baked treats, right next to your coffee.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#menu">See the menu</a>
-          <a class="btn btn-ghost" href="#find">Find the machine</a>
+          <a class="btn btn-ghost" href="#vote">Vote for next flavour</a>
         </div>
       </div>
 
-      <!-- Marquee: the second list is a duplicate for a seamless loop and is hidden from screen readers -->
-      <div class="marquee" aria-label="On the menu: Chocolate Chip, Double Chocolate, Oat and Date, Fudge Brownie, Blueberry Muffin, Mini Croissant">
+      <!-- Marquee: filled from the menu in config.js. The second copy makes the loop seamless. -->
+      <div class="marquee" id="marquee">
         <div class="marquee-track">
-          <ul class="marquee-list" aria-hidden="true">
-            <li>Chocolate Chip</li><li>Double Chocolate</li><li>Oat &amp; Date</li>
-            <li>Fudge Brownie</li><li>Blueberry Muffin</li><li>Mini Croissant</li>
-          </ul>
-          <ul class="marquee-list" aria-hidden="true">
-            <li>Chocolate Chip</li><li>Double Chocolate</li><li>Oat &amp; Date</li>
-            <li>Fudge Brownie</li><li>Blueberry Muffin</li><li>Mini Croissant</li>
-          </ul>
+          <ul class="marquee-list"><li>Cookies</li><li>Brownies</li><li>Muffins</li><li>Mini Croissants</li></ul>
+          <ul class="marquee-list" aria-hidden="true"><li>Cookies</li><li>Brownies</li><li>Muffins</li><li>Mini Croissants</li></ul>
         </div>
       </div>
     </section>
@@ -105,121 +101,60 @@
           <h2>Baked for your break</h2>
           <p class="section-sub">Grab one with your coffee. Prices in AED.</p>
         </div>
+        <!-- Cards are built from the menu list in config.js -->
+        <ul class="menu-grid" id="menu-grid"></ul>
+        <noscript><p class="noscript-note">Please turn on JavaScript to see today's menu.</p></noscript>
+      </div>
+    </section>
 
-        <!-- MENU: edit names / prices / descriptions here.
-             Photos live in images/ (800×500 WebP). Stock photos from Unsplash — swap for your own when ready. -->
-        <ul class="menu-grid">
-          <li class="card reveal" style="--delay:0ms">
-            <img class="card-media" src="images/chocolate-chip.webp" alt="Chocolate chip cookies with chocolate chunks" width="800" height="500" loading="lazy" decoding="async">
-            <div class="card-body">
-              <div class="card-top"><h3>Chocolate Chip Cookie</h3><span class="price">AED 5</span></div>
-              <p>Golden edges, soft centre, loaded with chocolate chips.</p>
-            </div>
-          </li>
-          <li class="card reveal" style="--delay:80ms">
-            <img class="card-media media-dark" src="images/double-chocolate.webp" alt="Dark double chocolate cookies" width="800" height="500" loading="lazy" decoding="async">
-            <div class="card-body">
-              <div class="card-top"><h3>Double Chocolate Cookie</h3><span class="price">AED 6</span></div>
-              <p>Rich cocoa dough with melty dark chocolate chunks.</p>
-            </div>
-          </li>
-          <li class="card reveal" style="--delay:160ms">
-            <img class="card-media media-oat" src="images/oat-date.webp" alt="A stack of oat cookies on a plate" width="800" height="500" loading="lazy" decoding="async">
-            <div class="card-body">
-              <div class="card-top"><h3>Oat &amp; Date Cookie</h3><span class="price">AED 6</span></div>
-              <p>Chewy oats sweetened with dates. Our lighter pick.</p>
-              <span class="tag">Lighter choice</span>
-            </div>
-          </li>
-          <li class="card reveal" style="--delay:0ms">
-            <img class="card-media media-dark" src="images/fudge-brownie.webp" alt="Stacked fudgy chocolate brownies" width="800" height="500" loading="lazy" decoding="async">
-            <div class="card-body">
-              <div class="card-top"><h3>Fudge Brownie</h3><span class="price">AED 7</span></div>
-              <p>Dense, fudgy and crackly on top. Pure chocolate comfort.</p>
-            </div>
-          </li>
-          <li class="card reveal" style="--delay:80ms">
-            <img class="card-media media-berry" src="images/blueberry-muffin.webp" alt="Blueberry muffins with fresh blueberries" width="800" height="500" loading="lazy" decoding="async">
-            <div class="card-body">
-              <div class="card-top"><h3>Blueberry Muffin</h3><span class="price">AED 7</span></div>
-              <p>Fluffy and bursting with blueberries, with a sugary top.</p>
-            </div>
-          </li>
-          <li class="card reveal" style="--delay:160ms">
-            <img class="card-media media-butter" src="images/mini-croissant.webp" alt="Golden, flaky croissants" width="800" height="500" loading="lazy" decoding="async">
-            <div class="card-body">
-              <div class="card-top"><h3>Mini Croissant</h3><span class="price">AED 6</span></div>
-              <p>Flaky, buttery layers. The perfect partner for coffee.</p>
-            </div>
-          </li>
-        </ul>
-        <!-- /MENU -->
+    <!-- ============ VOTE (built in phase 2) ============ -->
+    <section id="vote" class="section section-alt">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <p class="eyebrow">Your call</p>
+          <h2>Vote for the next flavour</h2>
+          <p class="section-sub">Voting opens soon. Check back here!</p>
+        </div>
       </div>
     </section>
 
     <!-- ============ FIND US ============ -->
-    <section id="find" class="section section-alt">
+    <section id="find" class="section">
       <div class="container find reveal">
-        <div class="find-icon" aria-hidden="true">
+        <div class="icon-badge" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
         </div>
-        <div>
+        <div class="find-text">
           <p class="eyebrow">Find us</p>
-          <h2>Next to the coffee machine</h2>
-          <p class="find-address">
-            <!-- LOCATION: replace with exact building / floor -->
-            <span class="placeholder">[Building / Floor: TBC]</span>
-          </p>
+          <h2 data-text="location.place">Next to the coffee machine, RAKMHSU</h2>
+          <p class="find-detail" data-text="location.detail"></p>
         </div>
+        <figure class="find-photo" id="find-photo" hidden></figure>
+      </div>
+    </section>
+
+    <!-- ============ MACHINE PROBLEM ============ -->
+    <section id="help" class="section section-alt">
+      <div class="container narrow help reveal">
+        <div class="icon-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg>
+        </div>
+        <p class="eyebrow">Machine problem?</p>
+        <h2>Lost money or a stuck item?</h2>
+        <p class="section-sub">Send us a quick WhatsApp with the date, time and item. <strong data-text="help.promise">We'll sort it out quickly.</strong></p>
+        <a class="btn btn-primary btn-whatsapp" id="help-btn" href="#help" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.5-.4z"/></svg>
+          Machine took my money / item stuck
+        </a>
+        <p class="pending-note" id="help-note" hidden>WhatsApp number coming soon.</p>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
     <section id="about" class="section about">
       <div class="container reveal">
-        <p class="about-line">A <strong>Luqman Trading</strong> brand bringing freshly baked cookies and treats, any time you need a break.</p>
-      </div>
-    </section>
-
-    <!-- ============ FEEDBACK ============ -->
-    <section id="feedback" class="section section-alt">
-      <div class="container narrow">
-        <div class="section-head reveal">
-          <p class="eyebrow">Feedback</p>
-          <h2>Tell us what you think</h2>
-          <p class="section-sub">Loved something? Want a new flavour? We read every message.</p>
-        </div>
-
-        <!-- FORMSPREE: replace YOUR_FORM_ID with your form's ID (see README.md) -->
-        <form class="feedback-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="field">
-            <label for="fb-name">Name <span class="optional">(optional)</span></label>
-            <input id="fb-name" name="name" type="text" autocomplete="name" maxlength="80">
-          </div>
-
-          <fieldset class="field">
-            <legend>How was your treat?</legend>
-            <!-- Inputs run 5→1 so CSS can highlight "up to" the chosen cookie -->
-            <div class="rating">
-              <input type="radio" id="r5" name="rating" value="5"><label for="r5" title="5 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">5 out of 5</span></label>
-              <input type="radio" id="r4" name="rating" value="4"><label for="r4" title="4 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">4 out of 5</span></label>
-              <input type="radio" id="r3" name="rating" value="3"><label for="r3" title="3 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">3 out of 5</span></label>
-              <input type="radio" id="r2" name="rating" value="2"><label for="r2" title="2 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">2 out of 5</span></label>
-              <input type="radio" id="r1" name="rating" value="1"><label for="r1" title="1 out of 5"><svg><use href="#cookie"/></svg><span class="sr-only">1 out of 5</span></label>
-            </div>
-          </fieldset>
-
-          <div class="field">
-            <label for="fb-message">Message</label>
-            <textarea id="fb-message" name="message" rows="4" required maxlength="2000" placeholder="What did you have? What should we add?"></textarea>
-          </div>
-
-          <!-- Honeypot: hidden from people, bots fill it in and Formspree discards the submission -->
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-          <button class="btn btn-primary btn-block" type="submit">Send feedback</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <p class="eyebrow">About us</p>
+        <p class="about-line" id="about-text">Luqman's Cookie Co. is a Luqman Trading brand.</p>
       </div>
     </section>
   </main>
@@ -227,12 +162,12 @@
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year">2026</span> Luqman's Cookie Co. · A Luqman Trading brand</p>
-      <!-- INSTAGRAM: replace href="#" with your profile URL, e.g. https://instagram.com/yourhandle -->
-      <a class="social" href="#" target="_blank" rel="noopener" aria-label="Luqman's Cookie Co. on Instagram">
+      <a class="btn btn-instagram" id="instagram-btn" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
-        <span>Instagram</span>
+        <span>Follow us on Instagram<small>for fresh-batch alerts</small></span>
       </a>
+      <p class="pending-note on-dark" id="instagram-note" hidden>Instagram link coming soon.</p>
+      <p class="footer-legal">&copy; <span id="year">2026</span> Luqman's Cookie Co. · A Luqman Trading brand</p>
     </div>
   </footer>
 </body>
