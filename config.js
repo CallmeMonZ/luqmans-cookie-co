@@ -21,7 +21,7 @@ window.SITE = {
   contact: {
     // WhatsApp number in international format, digits only, no + or spaces.
     // Example: "9715XXXXXXXX"
-    whatsapp: "[WHATSAPP_NUMBER]",
+    whatsapp: "971557939565",
     // Instagram handle without the @. Example: "luqmanscookieco"
     instagram: "[INSTAGRAM_HANDLE]"
   },
